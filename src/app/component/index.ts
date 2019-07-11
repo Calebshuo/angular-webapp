@@ -4,3 +4,4 @@
  * 2. 更好的封装，目录内部结构的变化不会影响外部
  */
 export * from './scrollable-tab';
+export * from './image-slider';

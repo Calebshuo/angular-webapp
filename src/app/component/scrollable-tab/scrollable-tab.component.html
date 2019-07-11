@@ -1,4 +1,4 @@
-<ul [ngStyle]="{ 'background-color': backgroundColor }">
+<ul [ngStyle]="{ 'background-color': backgroundColor }" #list>
   <li *ngFor="let menu of menus; let i = index">
     <a
       href="#"
