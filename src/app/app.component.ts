@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { TopMenu } from './component'
+import { Component } from '@angular/core';
+import { TopMenu } from './component';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  scrollableTabBgColor = 'red';
   topMenus: TopMenu[] = [
     {
       title: '热门',
@@ -79,8 +79,6 @@ export class AppComponent {
   ];
 
   handleTabSelected(topMenu: TopMenu) {
-    const colors = ['green', 'blue', 'black'];
-    const idx = Math.floor(Math.random() * 3);
-    this.scrollableTabBgColor = colors[idx];
+    console.log(topMenu);
   }
 }

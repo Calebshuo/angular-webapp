@@ -28,3 +28,9 @@ a {
   width: 2rem;
   margin-top: 2px;
 }
+.even {
+  font-weight: 900;
+}
+.odd {
+  font-weight: 100;
+}

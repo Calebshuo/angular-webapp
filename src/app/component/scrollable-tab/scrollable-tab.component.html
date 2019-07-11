@@ -1,8 +1,10 @@
 <ul [ngStyle]="{ 'background-color': backgroundColor }">
-  <li *ngFor="let menu of menus; let i = index">
+  <li *ngFor="let menu of menus; let i = index let even = even; let odd = odd"
+  [ngClass]="{ even: even, odd: odd }" >
     <a
       href="#"
       [class.active]="i === selectedIndex"
+      [ngStyle]="{ color: i === selectedIndex ? titleActiveColor : titleColor }"
       (click)="handleSelection(i)"
     >
       {{ menu.title }}
