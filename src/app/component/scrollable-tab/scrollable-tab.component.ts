@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 export interface TopMenu {
   title: string;
@@ -12,38 +12,83 @@ export interface TopMenu {
 })
 export class ScrollableTabComponent implements OnInit {
 
-  selectedIndex = -1;
-  @Input() menus: TopMenu[] = [];
-  @Input() backgroundColor = '#fff';
-  @Output() tabSelected = new EventEmitter();
+  menus: TopMenu[] = [
+    {
+      title: '热门',
+      link: ''
+    },
+    {
+      title: '男装',
+      link: ''
+    },
+    {
+      title: '百货',
+      link: ''
+    },
+    {
+      title: '运动',
+      link: ''
+    },
+    {
+      title: '手机',
+      link: ''
+    },
+    {
+      title: '家纺',
+      link: ''
+    },
+    {
+      title: '食品',
+      link: ''
+    },
+    {
+      title: '电器',
+      link: ''
+    },
+    {
+      title: '鞋包',
+      link: ''
+    },
+    {
+      title: '汽车',
+      link: ''
+    },
+    {
+      title: '水果',
+      link: ''
+    },
+    {
+      title: '电脑',
+      link: ''
+    },
+    {
+      title: '内衣',
+      link: ''
+    },
+    {
+      title: '家装',
+      link: ''
+    },
+    {
+      title: '母婴',
+      link: ''
+    },
+    {
+      title: '美妆',
+      link: ''
+    },
+    {
+      title: '家具',
+      link: ''
+    }
+  ];
   
   constructor() {
     console.log('constructor')
    }
-  
-  /**
-   * 组件的 `@Input` 属性变化时调用
-   * @param changes 一个索引对象，用以体现变化之前和当前的值
-   */
-  ngOnChanges(changes: SimpleChanges): void {
-    //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-    //Add '${implements OnChanges}' to the class.
-    console.log(changes)
-  }
 
   ngOnInit() {
     console.log('ngOnInit')
-  }
-
-  ngDoCheck(): void {
-    //Called every time that the input properties of a component or a directive are checked. Use it to extend change detection by performing a custom check.
-    //Add 'implements DoCheck' to the class.
-    console.log('ngDoCheck')
-  }
-
-  handleSelection(index: number) {
-    this.selectedIndex = index;
-    this.tabSelected.emit(this.menus[this.selectedIndex]);
   }
 
 }
