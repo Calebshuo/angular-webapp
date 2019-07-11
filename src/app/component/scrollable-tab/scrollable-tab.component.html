@@ -12,3 +12,48 @@
     </a>
   </li>
 </ul>
+
+<!-- <div *ngIf="a==5; else elseBlock">Content to render when condition is true.</div>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
+
+
+<!-- <div *ngIf="a==5; then thenBlock else elseBlock"></div>
+<ng-template #thenBlock>Content to render when condition is true.</ng-template>
+<ng-template #elseBlock>Content to render when condition is false.</ng-template> -->
+
+
+<!-- ng-template vs ng-container -->
+
+<!-- ng-template 是 Angular 结构型指令中的一种，用于定义模板渲染 HTML。
+
+定义的模板不会直接显示出来，需要通过其他结构型指令（如 ng-if）或 template-ref 将模块内容渲染到页面中。
+
+ng-container 也是Angular 结构型指令中的一种，用于包裹控制内部元素的显示与否。
+
+ng-container 可以直接包裹任何元素，包括文本，但本身不会生成元素标签，也不会影响页面样式和布局。包裹的内容，如果不通过其他指令控制，会直接渲染到页面中。 
+
+有些元素标签不允许包含其标签，如 ul 中只能包含 li 标签，select 中只能包含 option 标签，这种情况下可以使用 ng-container 指令有效控制标签的显示与否 -->
+
+<ng-template [ngIf]="true">
+  <p> ngIf with a template111.</p>
+</ng-template>
+
+<ng-template *ngIf="true">
+  <p> ngIf with a template222.</p>
+</ng-template>
+
+<ng-container>
+  <p> ngIf with an ng-container.</p>
+</ng-container>
+
+
+<!-- [ngIf] vs *ngIf  下面是上面的语法糖-->
+<ng-template [ngIf]="true">
+  <p>
+    Our heroes are true!
+  </p>
+</ng-template>
+<!-- Equivalent to: -->
+<p *ngIf="true">
+  Our heroes are true!
+</p>
