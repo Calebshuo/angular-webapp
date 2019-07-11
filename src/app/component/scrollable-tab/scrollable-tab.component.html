@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let menu of menus; let i = index; let first = first; let last = last; let odd = odd; let even = even;">
+  <li *ngFor="let menu of menus; let i = index; let first = first; let last = last; let odd = odd; let even = even; trackBy: menu ? menu.title : null;">
     <a
       href="#"
     >
