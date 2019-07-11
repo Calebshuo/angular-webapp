@@ -90,5 +90,8 @@ export class ScrollableTabComponent implements OnInit {
   ngOnInit() {
     console.log('ngOnInit')
   }
+  fn(index, item) {
+    return item.title
+  }
 
 }
