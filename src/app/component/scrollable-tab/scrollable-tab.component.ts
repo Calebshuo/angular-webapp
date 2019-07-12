@@ -11,7 +11,7 @@ export interface TopMenu {
   styleUrls: ['./scrollable-tab.component.css']
 })
 export class ScrollableTabComponent implements OnInit {
-  a=5
+  a = 5
   menus: TopMenu[] = [
     {
       title: '热门',
