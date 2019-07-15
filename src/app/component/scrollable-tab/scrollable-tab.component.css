@@ -1,6 +1,8 @@
 ul {
   padding: 0;
   margin: 0;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
   display: flex;
   justify-content: space-between;
 }
@@ -19,11 +21,7 @@ a {
 ::-webkit-scrollbar {
   display: none;
 }
-.active {
-  color: red;
-}
 .indicator {
-  background-color: brown;
   height: 2px;
   width: 2rem;
   margin-top: 2px;
