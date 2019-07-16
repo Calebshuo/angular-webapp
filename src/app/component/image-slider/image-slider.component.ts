@@ -35,7 +35,8 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
       this.rd2.setProperty(
         this.imgSlider.nativeElement,
         'scrollLeft',
-        (this.getIndex(++this.selectedIndex) *
+        // getIndex(++this.selectedIndex)
+        ((++this.selectedIndex % this.sliders.length) *
           this.imgSlider.nativeElement.scrollWidth) /
           this.sliders.length
       );
@@ -46,15 +47,17 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
     clearInterval(this.intervalId);
   }
 
-  getIndex(idx: number): number {
-    return idx >= 0
-      ? idx % this.sliders.length
-      : this.sliders.length - (Math.abs(idx) % this.sliders.length);
-  }
+  // // 处理当scrollLeft为负数时，数组越界问题没整明白。
+  // getIndex(idx: number): number {
+  //   return idx >= 0
+  //     ? idx % this.sliders.length
+  //     : this.sliders.length - (Math.abs(idx) % this.sliders.length);
+  // }
 
   handleScroll(ev) {
     const ratio =
       ev.target.scrollLeft / (ev.target.scrollWidth / this.sliders.length);
     this.selectedIndex = Math.round(ratio);
+    // console.log(this.selectedIndex, (ev.target.scrollWidth / this.sliders.length))
   }
 }

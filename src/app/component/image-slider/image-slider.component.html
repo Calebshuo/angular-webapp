@@ -1,4 +1,5 @@
 <div class="container" [ngStyle]="{ height: sliderHeight }">
+  <!-- 通过scroll可以拿到dom节点 -->
   <div class="image-slider" (scroll)="handleScroll($event)" #imageSlider>
     <img
       *ngFor="let slider of sliders"
