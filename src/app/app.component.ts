@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { TopMenu, ImageSlider } from './component'
+import { TopMenu, ImageSlider } from './shared/component'
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

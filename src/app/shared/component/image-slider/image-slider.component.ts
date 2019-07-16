@@ -43,6 +43,7 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
     }, this.intervalBySeconds * 1000);
   }
 
+  // 防止内存泄漏，在此生命周期中主要做一下清理工作。
   ngOnDestroy(): void {
     clearInterval(this.intervalId);
   }
