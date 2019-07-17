@@ -3,20 +3,23 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
   ScrollableTabComponent,
-  ImageSliderComponent
+  ImageSliderComponent,
+  HorizontalGridComponent
 } from './component';
 
 @NgModule({
   declarations: [
     ScrollableTabComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    HorizontalGridComponent
   ],
   imports: [CommonModule, FormsModule],
   exports: [
     CommonModule,
     FormsModule,
     ScrollableTabComponent,
-    ImageSliderComponent
+    ImageSliderComponent,
+    HorizontalGridComponent
   ]
 })
 export class SharedModule {}
