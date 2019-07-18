@@ -6,12 +6,20 @@ import {
   ImageSliderComponent,
   HorizontalGridComponent
 } from './component';
+import {
+  GridItemDirective,
+  GridItemImageDirective,
+  GridItemTitleDirective
+} from './directives';
 
 @NgModule({
   declarations: [
     ScrollableTabComponent,
     ImageSliderComponent,
-    HorizontalGridComponent
+    HorizontalGridComponent,
+    GridItemDirective,
+    GridItemImageDirective,
+    GridItemTitleDirective
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -19,7 +27,10 @@ import {
     FormsModule,
     ScrollableTabComponent,
     ImageSliderComponent,
-    HorizontalGridComponent
+    HorizontalGridComponent,
+    GridItemDirective,
+    GridItemImageDirective,
+    GridItemTitleDirective
   ]
 })
 export class SharedModule {}

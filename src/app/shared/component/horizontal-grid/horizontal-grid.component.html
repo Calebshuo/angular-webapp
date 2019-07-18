@@ -1,3 +1,5 @@
-<p (click)="handleClick($event)">
-  horizontal-grid works! {{ result }}
-</p>
+<span appGridItem *ngFor="let item of channels">
+  <img [appGridItemImage]="'3rem'" item="item222" [src]="item.icon" alt="" />
+  <span appGridItemTitle title="0.6rem" class="title">{{ item.title }}</span>
+</span>
+  
