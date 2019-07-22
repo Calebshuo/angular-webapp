@@ -24,10 +24,12 @@ export class HorizontalGridComponent implements OnInit {
     return this.cols > this.displayCols;
   }
 
-  public get templateRows(): string {
-    return `minmax(auto, max-content)`;
-  }
-
+  // 感觉没啥用，不写也没区别。
+  // public get templateRows(): string {
+  //   return `minmax(auto, max-content)`;
+  // }
+  
+  // 下面规定了每行一共有cols（8）列。按可视范围的宽度计算每列的宽度。0.4rem是grid-gap的宽度。
   public get templateColumns(): string {
     return `repeat(${this.cols}, calc((100vw - ${this.displayCols *
       0.4}rem) / ${this.displayCols}))`;
