@@ -4,7 +4,8 @@
 }
 
 .container .image-slider {
-  display: flex;
+  /* display: flex; */
+  white-space:nowrap;
   overflow-x: scroll;
   /* 滚动吸附 */
   scroll-snap-type: x mandatory;
@@ -14,6 +15,7 @@
 }
 
 .container img {
+  display: inline-block;
   width: 100%;
   height: 100%;
   object-fit: cover;
