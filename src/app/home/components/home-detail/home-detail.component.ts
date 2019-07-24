@@ -161,8 +161,8 @@ export class HomeDetailComponent implements OnInit {
       console.log('路径参数: ', params);
       this.selectedTabLink = params.get('tabLink');
     });
-    // this.route.queryParamMap.subscribe(params => {
-    //   console.log('查询参数', params);
-    // });
+    this.route.queryParamMap.subscribe(params => {
+      console.log('查询参数', params);
+    });
   }
 }
