@@ -25,7 +25,8 @@ const routes: Routes = [{ path: '', redirectTo: 'home', pathMatch: 'full' }];
    * 启用路由的 debug 跟踪模式，需要在根模块中设置 `enableTracing: true`
    */
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  // imports: [RouterModule.forRoot(routes, { enableTracing: true })],
+  imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule {}
