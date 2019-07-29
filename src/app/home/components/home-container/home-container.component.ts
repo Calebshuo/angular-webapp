@@ -14,12 +14,13 @@ export class HomeContainerComponent implements OnInit {
     private service: HomeService,
     // `@Inject` 这个注解用于找到可注入的标识，
     // 也就是 provide 的那个标识
-    @Inject(token) private baseUrl: string
+    // @Inject(token) private baseUrl: string
   ) {}
   topMenus: TopMenu[] = [];
   ngOnInit(): void {
-    this.topMenus = this.service.getTabs();
-    console.log(this.baseUrl);
+    this.service.getTabs().subscribe(tabs => {
+      this.topMenus = tabs;
+    });
   }
 
   handleTabSelected(topMenu: TopMenu) {

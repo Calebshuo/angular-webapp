@@ -32,7 +32,15 @@ export class HomeDetailComponent implements OnInit {
     this.route.queryParamMap.subscribe(params => {
       console.log('查询参数', params);
     });
-    this.imageSliders = this.service.getBanners();
-    this.channels = this.service.getChannels();
+    // 业务组件中使用subscribe监听http请求返回的结果
+    this.service.getBanners().subscribe(banners => {
+      this.imageSliders = banners;
+      // 由于使用onpush策略，所以视图依赖项改变后视图并不会更新，所以需要强制更新
+      this.cd.markForCheck();
+    });
+    this.service.getChannels().subscribe(channels => {
+      this.channels = channels;
+      this.cd.markForCheck();
+    });
   }
 }
