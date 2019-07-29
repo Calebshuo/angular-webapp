@@ -1,7 +1,8 @@
-<div *ngIf="selectedTabLink === 'hot'; else other">
-  <app-image-slider [sliders]="imageSliders"> </app-image-slider>
+<!-- async管道可以允许前面的变量是一个Observable类型的流，async管道会自动帮我们把subscribe后的值进行展示并且不会受到onpush策略的影响 -->
+<div *ngIf="(selectedTabLink$ | async) === 'hot'; else other">
+  <app-image-slider [sliders]="imageSliders$ | async"> </app-image-slider>
   <app-horizontal-grid>
-    <span appGridItem *ngFor="let item of channels">
+    <span appGridItem *ngFor="let item of channels$ | async">
       <img appGridItemImage="2rem" [src]="item.icon" alt="" />
       <span appGridItemTitle="0.6rem" class="title">{{ item.title }}</span>
     </span>
