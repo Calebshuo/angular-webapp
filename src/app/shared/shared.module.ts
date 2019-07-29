@@ -4,7 +4,8 @@ import { FormsModule } from '@angular/forms';
 import {
   ScrollableTabComponent,
   ImageSliderComponent,
-  HorizontalGridComponent
+  HorizontalGridComponent,
+  CountDownComponent
 } from './component';
 import {
   GridItemDirective,
@@ -22,7 +23,8 @@ import { AgoPipe } from './pipes'
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
-    AgoPipe
+    AgoPipe,
+    CountDownComponent
   ],
   imports: [CommonModule, FormsModule],
   exports: [
@@ -34,7 +36,8 @@ import { AgoPipe } from './pipes'
     GridItemDirective,
     GridItemImageDirective,
     GridItemTitleDirective,
-    AgoPipe
+    AgoPipe,
+    CountDownComponent
   ]
 })
 export class SharedModule {}

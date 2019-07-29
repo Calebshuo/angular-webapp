@@ -1,6 +1,7 @@
 <app-scrollable-tab
-  [menus]="topMenus"
+  [menus]="topMenus | async"
   (tabSelected)="handleTabSelected($event)"
 >
 </app-scrollable-tab>
+<!-- <div>{{clock | async}}</div> -->
 <router-outlet></router-outlet>

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { TopMenu } from 'src/app/shared/component';
 import { Router } from '@angular/router';
 import { HomeService, token } from '../../services';
+import { Observable, Subscription, interval } from 'rxjs';
 
 @Component({
   selector: 'app-home-container',
@@ -16,11 +17,11 @@ export class HomeContainerComponent implements OnInit {
     // 也就是 provide 的那个标识
     // @Inject(token) private baseUrl: string
   ) {}
-  topMenus: TopMenu[] = [];
+  topMenus: Observable<TopMenu[]>;
+  clock
   ngOnInit(): void {
-    this.service.getTabs().subscribe(tabs => {
-      this.topMenus = tabs;
-    });
+    this.topMenus = this.service.getTabs()
+    // this.clock = interval(1000)
   }
 
   handleTabSelected(topMenu: TopMenu) {
