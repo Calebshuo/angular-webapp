@@ -21,7 +21,7 @@ import { environment } from 'src/environments/environment';
 export class HomeService {
   constructor(private http: HttpClient) {}
   getBanners() {
-    // 使用泛型规定返回文件的类型，避免业务组件中将string赋值给自定义类型而报错
+    // http模块的请求是基于泛型的，可以直接把返回的JSON转换成指定的类型。使用泛型规定返回文件的类型，避免业务组件中将string赋值给自定义类型而报错
     // get请求携带params的写法
     return this.http.get<ImageSlider[]>(`${environment.baseUrl}/banners`, {
       params: { icode: `${environment.icode}` }

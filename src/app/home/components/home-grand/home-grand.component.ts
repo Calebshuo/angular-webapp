@@ -5,7 +5,8 @@ import {
   Injectable,
   InjectionToken
 } from '@angular/core';
-
+import { merge } from 'rxjs/operators';
+import { interval } from 'rxjs';
 @Injectable()
 class Product {
   constructor(
@@ -86,6 +87,15 @@ export class HomeGrandComponent implements OnInit {
     console.log(injector.get(PurchaseOrder).getProduct);
     // console.log(injector.get('baseUrl'))
     console.log(injector.get(token));
+
+  // 每2.5秒发出值
+const first = interval(2500);
+// 每1秒发出值
+const second = interval(1000);
+// 作为实例方法使用
+const example = first.pipe(merge(second));
+// 输出: 0,1,0,2....
+// const subscribe = example.subscribe(val => console.log(val));
   }
 
   minusDays(date: Date, days: number) {

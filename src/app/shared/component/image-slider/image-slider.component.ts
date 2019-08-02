@@ -36,7 +36,7 @@ export class ImageSliderComponent implements OnInit, AfterViewInit, OnDestroy {
       this.rd2.setProperty(
         this.imgSlider.nativeElement,
         'scrollLeft',
-        // getIndex(++this.selectedIndex)
+        // getIndex(++this.selectedIndex)。取余号是精髓
         ((++this.selectedIndex % this.sliders.length) *
           this.imgSlider.nativeElement.scrollWidth) /
           this.sliders.length

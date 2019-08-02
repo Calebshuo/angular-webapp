@@ -4,8 +4,8 @@ import {
   Input,
   ChangeDetectionStrategy
 } from '@angular/core';
-import { Observable, interval } from 'rxjs';
-import { map, takeWhile, tap } from 'rxjs/operators';
+import { Observable, interval, Subject, zip } from 'rxjs';
+import { map, takeWhile, tap, take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-count-down',
@@ -27,6 +27,27 @@ export class CountDownComponent implements OnInit {
       this.startDate,
       this.futureDate
     );
+
+    // 官网上subject的例子
+    //demo 1
+    // let source$ = interval(500);
+    // const proxySubject = new Subject();
+    // let subscriber = source$.subscribe( proxySubject );
+    // proxySubject.subscribe( (value) => console.log('proxy subscriber', value ) );
+    // proxySubject.next( 3 );
+
+    // demo 2
+    // const subject = new Subject()
+    // const subscription = subject.subscribe( (value) => console.log(value) )
+    // subject.next( 1 )
+    // subject.next( 2 )
+    
+    // 每1秒发出值
+    const source = interval(1000);
+    // 当一个 observable 完成时，便不会再发出更多的值了
+    const example = zip(source, source.pipe(take(2)));
+    // 输出: [0,0]...[1,1]
+    const subscribe = example.subscribe(val => console.log(val));
   }
 
   private getCountDownObservable(startDate: Date, futureDate: Date) {
@@ -41,7 +62,7 @@ export class CountDownComponent implements OnInit {
         second: Math.floor(sec % 60)
       })),
       // tap操作符不会改变流的形态，一般用于打印结果
-      tap(val => console.log(val)),
+      // tap(val => console.log(val)),
       map(({ hour, minute, second }) => `${hour}:${minute}:${second}`)
     );
   }
